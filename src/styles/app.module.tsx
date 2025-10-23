@@ -19,7 +19,9 @@ export const styles = StyleSheet.create({
   logoTitle:{
     width: 90,
     height: 90,
-    marginBottom: 10
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10
   },
   viewInput:{
     padding: 20,
@@ -31,14 +33,14 @@ export const styles = StyleSheet.create({
     fontWeight: 'light'
   },
   input:{
-      marginTop: 8,
-      width: 250,
-      backgroundColor: '#f4f0f0',
-      borderWidth: 3,
-      borderColor: 'darkturquoise',
-      textAlign: 'center',
-      borderRadius: 20,
-      fontSize: 15
+    marginTop: 8,
+    width: 250,
+    backgroundColor: '#f4f0f0',
+    borderWidth: 3,
+    borderColor: 'darkturquoise',
+    textAlign: 'center',
+    borderRadius: 20,
+    fontSize: 15
   }, 
   viewButton:{
     flexDirection: 'row',
@@ -60,5 +62,16 @@ export const styles = StyleSheet.create({
     color: 'aliceblue',
     fontWeight: 'bold',
     fontSize: 16
+  },
+  modal:{
+    borderWidth: 2,
+    borderColor: 'darkturquoise',
+    width: '80%',
+    height: '30%',
+    justifyContent: 'center',
+  },
+  viewModal:{
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
