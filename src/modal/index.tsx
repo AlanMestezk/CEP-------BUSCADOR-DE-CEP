@@ -4,11 +4,16 @@ import { styles } from "../styles/modal.module";
 
 interface AddressProps{
 
+    cep        : string
+    rua        : string
+    bairro     : string
+    cidade     : string
+    estado     : string
     buttonClose: ()=>void
 
 }
 
-export const Address = ({buttonClose}:AddressProps)=>{
+export const Address = ({buttonClose,cep, rua, bairro, cidade, estado }:AddressProps)=>{
 
     const [showEarth, setShowEarth] = useState<boolean>(true);
 
@@ -58,11 +63,11 @@ export const Address = ({buttonClose}:AddressProps)=>{
 
                             </View>
                             
-                            <Text style={styles.textAdress} >CEP: </Text>
-                            <Text style={styles.textAdress} >Rua: </Text>
-                            <Text style={styles.textAdress} >Bairro: </Text>
-                            <Text style={styles.textAdress} >Cidade: </Text>
-                            <Text style={styles.textAdress} >Estado: </Text>
+                            <Text style={styles.textAdress} >CEP: {cep}</Text>
+                            <Text style={styles.textAdress} >Rua: {rua}</Text>
+                            <Text style={styles.textAdress} >Bairro: {bairro}</Text>
+                            <Text style={styles.textAdress} >Cidade: {cidade}</Text>
+                            <Text style={styles.textAdress} >Estado: {estado}</Text>
                             
                             
                         </View>

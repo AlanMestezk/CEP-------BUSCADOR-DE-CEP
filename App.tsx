@@ -1,15 +1,23 @@
 
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Modal } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Modal, Keyboard } from 'react-native';
 import api from './src/services/api';
 import { useEffect, useState } from 'react';
 import { styles } from './src/styles/app.module';
 import { Address } from './src/modal';
 
+interface CepProps{
+  cep   : string
+  logradouro   : string
+  bairro: string
+  localidade: string
+  estado: string
+}
 
 export default function App() {
 
   const [cep, setCep] = useState('');
   const [showInfos, setShowInfos] = useState<boolean>(false);
+  const [cepUser, setCepUser] = useState<CepProps | null>(null);
 
 
   const showAddress= async ()=>{
@@ -26,12 +34,16 @@ export default function App() {
     try {
 
         const response = await api.get(`/${cep}/json`);
-        
-        console.log(response.data);
-        
-        setShowInfos(!showInfos)
+        setShowInfos(!showInfos);
 
-        setCep('')
+        setCepUser(response.data);//todo o objeto com as infos do cep
+
+        console.log(response.data);
+
+        Keyboard.dismiss(); //teclado fechado automaticamente
+
+        
+      
       
     } catch (error) {
 
@@ -40,6 +52,12 @@ export default function App() {
     }
 
 
+  }
+
+  const handleCloseModal= ()=>{
+
+    setShowInfos(!showInfos);
+    setCep('')
   }
 
   useEffect(
@@ -96,12 +114,16 @@ export default function App() {
         
         <View style={styles.viewModal}>
 
-          { 
+          { cepUser &&
             <Address
-              buttonClose={showAddress}
+              buttonClose={handleCloseModal}
+              bairro={cepUser.bairro}
+              cep={cepUser.cep}
+              cidade={cepUser.localidade}
+              estado={cepUser.estado}
+              rua={cepUser.logradouro}
             />
           }
-          
 
         </View>
 

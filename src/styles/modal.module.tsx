@@ -36,11 +36,17 @@ export const styles = StyleSheet.create(
         },
         viewAdress:{
             justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column'
+            alignItems: 'flex-start',
+            flexDirection: 'column',
+            flexWrap: 'wrap',
+
         },
         textAdress:{
-            fontSize: 18,
+            fontSize: 20,
+            fontFamily: 'Roboto', // Substitua 'Roboto' pela fonte desejada
+            color: 'black',
+            marginBottom: 5,
+            fontWeight: 'bold'
         },
         viewImageTitle:{
             marginBottom: 10,
@@ -54,7 +60,9 @@ export const styles = StyleSheet.create(
             height: 40
         },
         viewTextAdress:{
-            fontSize: 27,
+            textAlign: 'center',
+            fontSize: 35,
+            fontFamily: 'Roboto',
         }
     }
 )
